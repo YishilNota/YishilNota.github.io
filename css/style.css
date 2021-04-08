@@ -118,7 +118,7 @@ button::-moz-focus-inner {
   padding: 0;
 }
 html {
-  font-size: 20px;
+  font-size: 14px;
 }
 body {
   font-family: "Lucida Grande", Verdana, "Helvetica Neue", Arial, "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "WenQuanYi Micro Hei", sans-serif;
@@ -552,7 +552,7 @@ a {
   text-align: center;
   margin: 13px 0;
   font-family: Times, Georgia, serif;
-  font-size: 34px;
+  font-size: 28px;
   -webkit-transition: 0.3s;
   -moz-transition: 0.3s;
   -ms-transition: 0.3s;
@@ -572,8 +572,8 @@ a {
   display: block;
   border: 5px solid #fff;
   border-radius: 50%;
-  width: 132px;
-  height: 132px;
+  width: 126px;
+  height: 126px;
   margin: 0 auto;
   position: relative;
   overflow: hidden;
@@ -751,13 +751,13 @@ a {
   font-family: Arial;
 }
 #header .header-nav .social a {
-  width: 41px;
-  height: 41px;
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
   margin: 0 2px 6px;
   vertical-align: middle;
-  font-size: 27.060000000000002px;
-  line-height: 41px;
+  font-size: 23.1px;
+  line-height: 35px;
   text-align: center;
   color: #fff;
   background: #6f7170;
@@ -1210,7 +1210,7 @@ color
   color: #999;
   position: relative;
   margin-right: 10px;
-  font: 20px FontAwesome;
+  font: 14px FontAwesome;
 }
 .archive-article-inner .article-meta .article-category:before {
   float: left;
@@ -1701,7 +1701,7 @@ li:hover {
   bottom: 1em;
   left: 0;
   margin-left: 0;
-  padding: 6px 10px 10px 42px;
+  padding: 6px 10px 10px 54px;
   border-radius: 2.8%;
   overflow: auto;
 }
@@ -2066,7 +2066,7 @@ aside.comment-bar:active {
   color: #999;
   position: relative;
   margin-right: 10px;
-  font: 20px FontAwesome;
+  font: 14px FontAwesome;
 }
 .archive-article-inner .article-meta .article-category:before {
   float: left;
@@ -2838,7 +2838,7 @@ pre .javascript .function {
 .article-category::before {
   float: left;
   color: #999;
-  font: 20px FontAwesome;
+  font: 14px FontAwesome;
   margin-right: 5px;
   margin-top: 0.333333333333333rem;
 }
@@ -2855,7 +2855,7 @@ pre .javascript .function {
 .article-pop-out:before {
   color: #999;
   content: "\f08d";
-  font: 20px FontAwesome;
+  font: 14px FontAwesome;
   float: left;
   margin-right: 5px;
   margin-top: 0.333333333333333rem;
