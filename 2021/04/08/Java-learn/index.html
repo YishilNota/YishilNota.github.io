@@ -23,7 +23,7 @@
 <meta property="og:description" content="java 学习笔记（持续更新…） 日期：2020&#x2F;10&#x2F;22  第一天 安装Intellij IDEA 配置JAVA环境 编写HelloWorld程序">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-04-08T15:29:03.000Z">
-<meta property="article:modified_time" content="2021-04-12T11:31:00.112Z">
+<meta property="article:modified_time" content="2021-04-12T11:52:38.965Z">
 <meta property="article:author" content="Leon">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
@@ -282,8 +282,7 @@
 <h2 id="第三天"><a href="#第三天" class="headerlink" title="第三天"></a>第三天</h2><h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><p>定义数组</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] numbers = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">5</span>]; <span class="comment">//一维数组</span></span><br><span class="line"><span class="keyword">int</span>[][] someNumbers = <span class="keyword">new</span> <span class="keyword">int</span> [<span class="number">2</span>][<span class="number">3</span>];<span class="comment">//二维数组</span></span><br><span class="line">or</span><br><span class="line"><span class="keyword">int</span>[] numbers = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;</span><br><span class="line"><span class="keyword">int</span>[][] someNumbers = &#123;&#123;<span class="number">1</span>,<span class="number">2</span>&#125;,&#123;<span class="number">2</span>,<span class="number">4</span>&#125;,&#123;<span class="number">2</span>,<span class="number">7</span>&#125;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//	import java.util.Arrays;  //数组类</span></span><br><span class="line"><span class="comment">//	Arrays.deepToString(someNumbers) //可输出数组成员</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h3><h2 id="第四天"><a href="#第四天" class="headerlink" title="第四天"></a>第四天</h2><p>因为一些原因有些内容忽略了</p>
-<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>可变个数形参的方法</p>
+<h3 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h3><h2 id="第四天"><a href="#第四天" class="headerlink" title="第四天"></a>第四天</h2><h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>可变个数形参的方法</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 示例-01</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">putString</span><span class="params">(String... a)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//参数个数可以为0，1或多个</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">public void putString(String[] a) &#123;</span></span><br><span class="line"><span class="comment">	//两者不构成函数重载，即不能共存！！！</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/************************************/</span></span><br><span class="line"><span class="comment">// 示例-02</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">putNumber</span><span class="params">(<span class="keyword">int</span> a)</span></span>&#123;</span><br><span class="line">    <span class="comment">//方法重载时，优先调用参数确定的方法</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">putNumber</span><span class="params">(<span class="keyword">int</span>... a)</span></span>&#123;</span><br><span class="line">	<span class="comment">//可变个数参数方法</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*************************************/</span></span><br><span class="line"><span class="comment">// 示例-03</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">putString</span><span class="params">(<span class="keyword">int</span> a, String... a)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//可变个数形参必须放在末尾</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
@@ -297,7 +296,7 @@
         <p><span>Title:</span><a href="/2021/04/08/Java-learn/">java 学习笔记</a></p>
         <p><span>Author:</span><a href="/" title="Back to Homepage"></a></p>
         <p><span>Created:</span>2021-04-08, 23:29:03</p>
-        <p><span>Updated:</span>2021-04-12, 19:31:00</p>
+        <p><span>Updated:</span>2021-04-12, 19:52:38</p>
         <p>
             <span>Full URL:</span><a class="post-url" href="/2021/04/08/Java-learn/" title="java 学习笔记">http://tenleon.top/2021/04/08/Java-learn/</a>
             <span class="copy-path" data-clipboard-text="From http://tenleon.top/2021/04/08/Java-learn/　　By " title="Copy Article&#39;s Link &amp; Author"><i class="fa fa-clipboard"></i></span>
@@ -435,7 +434,7 @@
                 $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
             }
             else {
-                var backgroundnum = 2;
+                var backgroundnum = 1;
                 var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
                 $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
             }
