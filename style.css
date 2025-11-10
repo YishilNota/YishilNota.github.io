@@ -1,0 +1,190 @@
+/* 全局设置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    font-family: 'UKIJ Basma', sans-serif;
+    background: #f7f7f7;
+    /* 背景色 */
+    color: #333;
+    /* 文本颜色 */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 顶部导航栏 */
+.navbar {
+    background-color: #003d5b;
+    /* 深蓝色 */
+    width: 100%;
+    padding: 20px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    font-family: 'UKIJ Qolyazma', sans-serif;
+}
+
+.navbar ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    align-items: center;
+}
+
+.navbar li {
+    margin: 0 30px;
+}
+
+/* 导航栏图标样式 */
+.navbar-logo {
+    width: 48px;
+    /* 图标大小 */
+    height: 48px;
+    border-radius: 80%;
+    /* 圆形 */
+    margin-right: 20px;
+    /* 图标与文字间的间距 */
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.navbar a:hover {
+    color: #00add8;
+    /* 主色调亮蓝色 */
+}
+
+/* 首页Hero区域 */
+.hero {
+    text-align: center;
+    margin-top: 150px;
+    padding: 60px 20px;
+    background: #00add8;
+    /* 主色调 */
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.download-btn {
+    font-size: 18px;
+    padding: 15px 30px;
+    background-color: white;
+    color: #003d5b;
+    /* 深蓝色 */
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 700;
+    transition: background-color 0.3s ease;
+}
+
+.download-btn:hover {
+    background-color: #ff6f61;
+    color: white;
+}
+
+/* 功能介绍 */
+.features {
+    margin-top: 60px;
+    text-align: center;
+}
+
+.features h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+}
+
+/* 固定卡片大小 */
+.feature-card {
+    display: inline-block;
+    width: 250px;
+    /* 固定宽度 */
+    height: 180px;
+    /* 固定高度 */
+    background: white;
+    padding: 20px;
+    margin: 20px;
+    text-align: center;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    font-family: 'UKIJ Kesme Tuz', sans-serif;
+    overflow: hidden;
+    /* 防止内容溢出 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card i {
+    font-size: 50px;
+    color: #00add8;
+    /* 主色调亮蓝色 */
+    margin-bottom: 15px;
+}
+
+.feature-card h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    font-size: 16px;
+    color: #666;
+    height: 100px;
+    /* 设置固定高度来避免文本过多影响卡片高度 */
+    overflow: hidden;
+    /* 避免文字溢出 */
+}
+
+/* 关于部分 */
+.about {
+    text-align: center;
+    margin-top: 60px;
+    font-size: 18px;
+    color: #555;
+    font-family: 'ALKATIP Osmaniy', sans-serif;
+}
+
+.about h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+/* 页脚 */
+footer {
+    background-color: #003d5b;
+    /* 深蓝色 */
+    color: white;
+    width: 100%;
+    /* 确保页脚铺满宽度 */
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    margin-top: auto;
+    font-family: 'ALKATIP Osmaniy', sans-serif;
+    /* 保证页脚在底部 */
+}
