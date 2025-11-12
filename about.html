@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ug">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ھەققىدە - يېشىل نوتا سۈنئىي ئەقىل قورالى</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Noto+Sans+Arabic:wght@400;700&display=swap"
+    rel="stylesheet">
+  <link rel="icon"
+    href="https://avatars.githubusercontent.com/u/48040405?s=400&u=d5fe2b34dfd050be4d0069f332c7b54fc2ece2ec&v=4"
+    type="image/png">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+      font-family: 'UKIJ Basma', 'Noto Sans Arabic', sans-serif;
+      background: linear-gradient(to bottom right, #f9fafb, #eef3f7);
+      color: #222;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: rgba(0, 61, 91, 0.92);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+
+    .navbar {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar li {
+      margin: 0 15px;
+    }
+
+    .navbar-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      transition: transform 0.3s;
+    }
+
+    .navbar-logo:hover {
+      transform: scale(1.1);
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    .navbar a:hover {
+      color: #00bcd4;
+    }
+
+    .navbar a.active {
+      color: #ff6f61;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 20px 60px;
+    }
+
+    .about-card {
+      background: white;
+      border-radius: 18px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+      padding: 40px 50px;
+      max-width: 780px;
+      text-align: center;
+      animation: fadeIn 0.8s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .about-card h1 {
+      font-size: 34px;
+      color: #007ea7;
+      margin-bottom: 20px;
+    }
+
+    .about-card p {
+      font-size: 17px;
+      color: #444;
+      line-height: 1.8;
+      margin-bottom: 15px;
+    }
+
+    .about-card .highlight {
+      color: #00a0c6;
+      font-weight: 700;
+    }
+
+    .return-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 30px;
+      padding: 10px 25px;
+      background: #007ea7;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 126, 167, 0.3);
+    }
+
+    .return-btn:hover {
+      background: #00a7cc;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 126, 167, 0.4);
+    }
+
+    footer {
+      background-color: #003d5b;
+      color: white;
+      width: 100%;
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+      margin-top: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="navbar">
+      <a href="index.html">
+        <img src="https://avatars.githubusercontent.com/u/48040405?s=400&u=d5fe2b34dfd050be4d0069f332c7b54fc2ece2ec&v=4"
+          alt="Logo" class="navbar-logo">
+      </a>
+      <ul>
+        <li><a href="index.html">باش بەت</a></li>
+        <li><a href="index.html#download">چۈشۈرۈش</a></li>
+        <li><a href="about.html" class="active">ھەققىدە</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <div class="about-card">
+      <h1>يېشىل نوتا سۈنئىي ئەقىل قورالى ھەققىدە</h1>
+      <p>
+        <span class="highlight">«يېشىل نوتا»<br></span>
+      </p>
+      <p>
+        بۇ قورال، يەرلىك ئىقتىدارلارنى قوشۇپ، ئوچۇق مەنبەلىك تېخنىكىلار ئارقىلىق قوغدىغۇچ ۋە سۈنئىي ئەقىلنى بىرلەشتۈرىدۇ.
+     مەقسەت — <span class="highlight">ئاسانىچىلىق ۋە بىخەتەرلىكنى بىرلەشتۈرۈش</span> دۇر.
+      </p>
+      <br>
+      <p>
+        دىتال ھازىر تۈزىتىلىۋاتىدۇ، يېڭى نەشر ئارقىلىق تېخىمۇ كۆپ ئىقتىدارلار قوشۇلىدۇ
+      </p>
+      
+      <p>
+        🌱بىز بىلەن بىللە، يېڭىلىققا قەدەم قويۇڭ🌱
+      </p>
+
+      <a href="index.html" class="return-btn">
+        <i class="fas fa-home"></i> باش بەتكە قايتىش
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    <p>يېشىل نوتا دىتال ئىجادىيەت ئىستۇدىيەسى</p>
+  </footer>
+</body>
+
+</html>

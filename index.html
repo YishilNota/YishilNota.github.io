@@ -2,70 +2,327 @@
 <html lang="ug">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>يېشىل نوتا سۈنئىي ئەقىل قورالى</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Noto+Sans+UI+Arabic:wght@400;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <!-- 网站图标 -->
-    <link rel="icon"
-        href="https://avatars.githubusercontent.com/u/48040405?s=400&u=d5fe2b34dfd050be4d0069f332c7b54fc2ece2ec&v=4"
-        type="image/png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>يېشىل نوتا سۈنئىي ئەقىل قورالى</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Noto+Sans+Arabic:wght@400;700&display=swap"
+    rel="stylesheet">
+  <link rel="icon"
+    href="https://avatars.githubusercontent.com/u/48040405?s=400&u=d5fe2b34dfd050be4d0069f332c7b54fc2ece2ec&v=4"
+    type="image/png">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    html,
+    body {
+      height: 100%;
+      font-family: 'UKIJ Basma', 'Noto Sans Arabic', sans-serif;
+      background: linear-gradient(to bottom right, #f9fafb, #eef3f7);
+      color: #222;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: rgba(0, 61, 91, 0.92);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+
+    .navbar {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar li {
+      margin: 0 15px;
+    }
+
+    .navbar-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      transition: transform 0.3s;
+    }
+
+    .navbar-logo:hover {
+      transform: scale(1.1);
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    .navbar a:hover {
+      color: #00bcd4;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      margin-top: 90px;
+      padding: 0 20px 40px;
+    }
+
+    /* 主卡片 */
+    .hero {
+      text-align: center;
+      background: linear-gradient(135deg, #00a0c6, #007ea7);
+      color: white;
+      border-radius: 18px;
+      padding: 40px 30px;
+      max-width: 680px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      transform: scale(0.9);
+      margin-bottom: 40px;
+      animation: fadeIn 1s ease-out;
+      position: relative;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero h1 {
+      font-size: 34px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 16px;
+      margin-bottom: 18px;
+    }
+
+    /* ✅ 下载按钮 + 图标 + "يېڭى" 徽章 */
+    .download-btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 15px;
+      padding: 10px 26px;
+      background-color: white;
+      color: #007ea7;
+      border-radius: 40px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(255, 255, 255, 0.25);
+    }
+
+    .download-btn i {
+      font-size: 16px;
+    }
+
+    .download-btn:hover {
+      background-color: #ff6f61;
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    /* "يېڭى" 徽章 */
+    .new-badge {
+      position: absolute;
+      top: -10px;
+      right: -20px;
+      background: #ff6f61;
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 6px;
+      border-radius: 10px;
+      letter-spacing: 0.5px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      50% {
+        transform: scale(1.15);
+        opacity: 0.85;
+      }
+
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .features {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .features h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #003d5b;
+    }
+
+    .feature-grid {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    .feature-card {
+      width: 230px;
+      background: white;
+      border-radius: 12px;
+      padding: 20px 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transition: all 0.4s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    }
+
+    .feature-card i {
+      font-size: 36px;
+      color: #00a0c6;
+      margin-bottom: 10px;
+    }
+
+    .feature-card h3 {
+      font-size: 18px;
+      margin-bottom: 6px;
+      color: #003d5b;
+    }
+
+    .feature-card p {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.4;
+    }
+
+    .about {
+      margin-top: 30px;
+      text-align: center;
+      font-size: 16px;
+      color: #444;
+    }
+
+    .about h2 {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    footer {
+      background-color: #003d5b;
+      color: white;
+      width: 100%;
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+      margin-top: auto;
+    }
+  </style>
 </head>
 
 <body>
-    <header>
-        <div class="navbar">
-            <ul>
-                <!-- 加入图标 -->
-                <li><img src="https://avatars.githubusercontent.com/u/48040405?s=400&u=d5fe2b34dfd050be4d0069f332c7b54fc2ece2ec&v=4"
-                        alt="Logo" class="navbar-logo"></li>
-                <li><a href="#home">باش بەت</a></li>
-                <li><a href="#download">چۈشۈرۈش</a></li>
-                <li><a href="#about">ھەققىدە</a></li>
-            </ul>
-        </div>
-    </header>
+  <header>
+    <div class="navbar">
+      <img src="https://avatars.githubusercontent.com/u/48040405?s=400&u=d5fe2b34dfd050be4d0069f332c7b54fc2ece2ec&v=4"
+        alt="Logo" class="navbar-logo">
+      <ul>
+        <li><a href="#home">باش بەت</a></li>
+        <li><a href="#download">چۈشۈرۈش</a></li>
+        <li><a href="about.html">ھەققىدە</a></li>
+      </ul>
+    </div>
+  </header>
 
-    <main>
-        <div class="hero" id="home">
-            <h1>يېشىل نوتا سۈنئىي ئەقىل قورالى</h1>
-            <p>كۆپلىگەن ئىقتىدارغا ئېگە ئۇنۋىرسال قورال</p>
-            <a href="download-tool.zip" class="download-btn">چۈشۈرۈش</a>
-        </div>
+  <main>
+    <section class="hero" id="home">
+      <h1>يېشىل نوتا سۈنئىي ئەقىل قورالى</h1>
+      <p>كۆپ ئىقتىدارلىق سۈنئىي ئەقىل قورال</p>
 
-        <div class="features" id="download">
-            <h2>قورالنىڭ ئالاھىدىلىكلىرى</h2>
-            <div class="feature-card">
-                <i class="fas fa-cogs"></i>
-                <h3>سۈنئىي ئەقىل</h3>
-                <p>پاراڭلىشىش، رەسىم چىقىرىش ، سوئال جاۋاپ</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-user-friends"></i>
-                <h3>قوغدىغۇچى</h3>
-                <p>ئەخلەت تازلاش، دىتال يۇيۇش</p>
-            </div>
-            <div class="feature-card">
-                <i class="fas fa-shield-alt"></i>
-                <h3>بىخەتەرلىك</h3>
-                <p>قۇلايلىق ۋە بىخەتەرلىك</p>
-            </div>
-        </div>
+      <a href="https://github.com/YishilNota/Tools/releases" class="download-btn">
+        <i class="fas fa-download"></i>
+        چۈشۈرۈش
+        <span class="new-badge">يېڭى</span>
+      </a>
+    </section>
 
-        <div class="about" id="about">
-            <h2>چۈشەنچە</h2>
-            <p>دىتال كېچە كۈندۈز توختىماي ئىشلىنىۋاتىدۇ، پات ئارىدا سىز بىلەن يۈز كۆرۈشىدۇ</p>
+    <div class="features" id="download">
+      <h2>قورالنىڭ ئالاھىدىلىكلىرى</h2>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <i class="fas fa-cogs"></i>
+          <h3>سۈنئىي ئەقىل</h3>
+          <p>پاراڭلىشىش، رەسىم چىقىرىش، سوئال جاۋاپ</p>
         </div>
-    </main>
+        <div class="feature-card">
+          <i class="fas fa-user-friends"></i>
+          <h3>قوغدىغۇچى</h3>
+          <p>ئەخلەت تازلاش، دىتال يۇيۇش</p>
+        </div>
+        <div class="feature-card">
+          <i class="fas fa-shield-alt"></i>
+          <h3>بىخەتەر</h3>
+          <p>قۇلايلىق ۋە بىخەتەر</p>
+        </div>
+      </div>
+    </div>
 
-    <footer>
-        <p>يېشىل نوتا دىتال ئىجادىيەت ئىستۇدىيەسى</p>
-    </footer>
+    <div class="about" id="about">
+      <h2>چۈشەنچە</h2>
+      <p>دىتال كېچە كۈندۈز توختىماي ئىشلىنىۋاتىدۇ، پات ئارىدا سىز بىلەن يۈز كۆرۈشىدۇ</p>
+    </div>
+  </main>
+
+  <footer>
+    <p>يېشىل نوتا دىتال ئىجادىيەت ئىستۇدىيەسى</p>
+  </footer>
 </body>
 
 </html>
