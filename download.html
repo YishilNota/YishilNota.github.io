@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="ug" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>يېشىل نوتا سۈنئىي ئەقىل قورالى</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon"
+        href="https://avatars.githubusercontent.com/u/48040405?s=400&u=d5fe2b34dfd050be4d0069f332c7b54fc2ece2ec&v=4"
+        type="image/png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            font-family: 'Noto Sans Arabic', sans-serif;
+            background: linear-gradient(to bottom right, #f9fafb, #eef3f7);
+            color: #222;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: rgba(0, 61, 91, 0.92);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .navbar {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding: 10px 0;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar li {
+            margin: 0 15px;
+        }
+
+        .navbar-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+
+        .navbar-logo:hover {
+            transform: scale(1.1);
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .navbar a:hover {
+            color: #00bcd4;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            margin-top: 90px;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 980px;
+            width: 100%;
+        }
+
+        .section-title {
+            font-size: 26px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-align: center;
+            color: #003d5b;
+        }
+
+        .download-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+        }
+
+        .download-table thead {
+            background: #f5f6f8;
+        }
+
+        .download-table th,
+        .download-table td {
+            padding: 12px;
+            font-size: 15px;
+            border-bottom: 1px solid #e5e5e5;
+            text-align: center;
+        }
+
+        .download-table tbody tr:hover {
+            background: #fafafa;
+        }
+
+        .dl-btn {
+            background: #00a0c6;
+            color: white;
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 10px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        .dl-btn:hover {
+            background: #007ea7;
+            transform: translateY(-2px);
+        }
+
+        .new-badge {
+            position: absolute;
+            top: -10px;
+            right: -20px;
+            background: #ff6f61;
+            color: white;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 6px;
+            border-radius: 10px;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.15);
+                opacity: 0.85;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .detail-row td {
+            padding: 0;
+            border: none;
+        }
+
+        .detail-card-wrapper {
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.4s ease;
+        }
+
+        .detail-card {
+            display: flex;
+            gap: 15px;
+            background: #e0f7fa;
+            border-radius: 12px;
+            padding: 15px;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        .detail-card.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .detail-card .icon-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .detail-card .icon-wrapper img {
+            width: 100px;
+            height: 100px;
+            border-radius: 12px;
+        }
+
+        .detail-card .info {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            flex: 1;
+            text-align: right;
+        }
+
+        .detail-card .info h3 {
+            margin: 0;
+            font-size: 20px;
+            color: #003d5b;
+        }
+
+        .detail-card .info .meta {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .detail-card .info p {
+            margin-top: 4px;
+            margin-left: 10px;
+            font-size: 15px;
+            color: #222;
+            line-height: 1.6;
+            text-align: justify;
+            white-space: pre-wrap;
+        }
+
+        .detail-card .icon-wrapper .dl-btn {
+            padding: 4px 10px !important;
+            font-size: 12px !important;
+            border-radius: 4px !important;
+            white-space: nowrap;
+            background-color: #28a745 !important;
+            color: white !important;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .detail-card .icon-wrapper .dl-btn:hover {
+            background-color: #218838 !important;
+            transform: translateY(-1px);
+        }
+
+        footer {
+            background-color: #003d5b;
+            color: white;
+            width: 100%;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+            margin-top: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+            <img src="https://avatars.githubusercontent.com/u/48040405?s=400&u=d5fe2b34dfd050be4d0069f332c7b54fc2ece2ec&v=4"
+                alt="Logo" class="navbar-logo">
+            <ul>
+                <li><a href="index.html">باش بەت</a></li>
+                <li><a href="download.html">چۈشۈرۈش</a></li>
+                <li><a href="about.html">ھەققىدە</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h2 class="section-title">يېڭى نۇسخا يۇمشاق دېتاللار</h2>
+            <table class="download-table">
+                <thead>
+                    <tr>
+                        <th>دېتال</th>
+                        <th>نۇسخىسى</th>
+                        <th>ھەجمى</th>
+                        <th>يېڭىلانغان ۋاقىت</th>
+                        <th>تەپسىلاتى</th>
+                    </tr>
+                </thead>
+                <tbody id="software-list">
+                    <tr>
+                        <td colspan="5" id="loading-text">
+                            دىتال كېچە كۈندۈز توختىماي ئىشلىنىۋاتىدۇ، پات ئارىدا سىز بىلەن يۈز كۆرۈشىدۇ
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer>
+        <p>يېشىل نوتا دىتال ئىجادىيەت ئىستۇدىيەسى</p>
+    </footer>
+
+    <script>
+        function createLetterIcon(letter, size = 100, bgColor = '#00a0c6', color = '#fff') {
+            const canvas = document.createElement('canvas');
+            canvas.width = size;
+            canvas.height = size;
+            const ctx = canvas.getContext('2d');
+
+            ctx.fillStyle = bgColor;
+            ctx.beginPath();
+            ctx.arc(size / 2, size / 2, size / 2, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.fillStyle = color;
+            ctx.font = `${size * 0.5}px Noto Sans Arabic`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(letter.toUpperCase(), size / 2, size / 2);
+
+            return canvas.toDataURL();
+        }
+
+        function checkImage(url) {
+            return new Promise(resolve => {
+                const img = new Image();
+                img.onload = () => resolve(true);
+                img.onerror = () => resolve(false);
+                img.src = url;
+            });
+        }
+
+        async function loadSoftware() {
+            const tbody = document.getElementById('software-list');
+
+            try {
+                const res = await fetch('softwares.json');
+                if (!res.ok) throw new Error('Fetch failed');
+
+                const data = await res.json();
+                tbody.innerHTML = '';
+
+                if (!data.length) {
+                    tbody.innerHTML = '<tr><td colspan="5"> دىتال كېچە كۈندۈز توختىماي ئىشلىنىۋاتىدۇ، پات ئارىدا سىز بىلەن يۈز كۆرۈشىدۇ</td></tr>';
+                    return;
+                }
+
+                for (const software of data) {
+                    const firstLetter = software.name ? software.name[0] : '?';
+
+                    let iconDataURL = createLetterIcon(firstLetter);
+
+                    if (software.icon) {
+                        const valid = await checkImage(software.icon);
+                        if (valid) iconDataURL = software.icon;
+                    }
+
+                    const row = document.createElement('tr');
+                    row.className = 'download-row';
+
+                    row.innerHTML = `
+                        <td>${software.name}</td>
+                        <td>${software.version}</td>
+                        <td>${software.size}</td>
+                        <td>${software.date}</td>
+                        <td>
+                            <a href="${software.download}" class="dl-btn">
+                                تەپسىلاتى
+                                ${software.new ? ' <span class="new-badge">يېڭى</span>' : ''}
+                            </a>
+                        </td>
+                    `;
+
+                    const detailRow = document.createElement('tr');
+                    detailRow.className = 'detail-row';
+
+                    detailRow.innerHTML = `
+                        <td colspan="5">
+                            <div class="detail-card-wrapper">
+                                <div class="detail-card">
+                                    <div class="icon-wrapper">
+                                        <img src="${iconDataURL}" alt="icon">
+                                        <a href="${software.download}" class="dl-btn">چۈشۈرۈش</a>
+                                    </div>
+                                    <div class="info">
+                                        <h3>${software.name}</h3>
+                                        <div class="meta version">نۇسخىسى: ${software.version}</div>
+                                        <div class="meta size">ھەجمى: ${software.size}</div>
+                                        <div class="meta date">يېڭىلانغان ۋاقىت: ${software.date}</div>
+                                        <p>${software.description}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    `;
+
+                    tbody.appendChild(row);
+                    tbody.appendChild(detailRow);
+                }
+
+                const rows = document.querySelectorAll('.download-row');
+
+                rows.forEach(row => {
+                    row.addEventListener('click', () => {
+                        const detailRow = row.nextElementSibling;
+                        const wrapper = detailRow.querySelector('.detail-card-wrapper');
+                        const card = detailRow.querySelector('.detail-card');
+
+                        document.querySelectorAll('.detail-card-wrapper').forEach(w => {
+                            if (w !== wrapper) {
+                                w.style.maxHeight = '0';
+                                w.querySelector('.detail-card').classList.remove('show');
+                            }
+                        });
+
+                        if (wrapper.style.maxHeight && wrapper.style.maxHeight !== '0px') {
+                            card.classList.remove('show');
+                            wrapper.style.maxHeight = '0';
+                        } else {
+                            wrapper.style.maxHeight = card.scrollHeight + 20 + 'px';
+                            setTimeout(() => card.classList.add('show'), 10);
+                        }
+                    });
+                });
+
+            } catch (e) {
+                tbody.innerHTML =
+                    '<tr><td colspan="5"> دىتال كېچە كۈندۈز توختىماي ئىشلىنىۋاتىدۇ، پات ئارىدا سىز بىلەن يۈز كۆرۈشىدۇ</td></tr>';
+                console.error(e);
+            }
+        }
+
+        loadSoftware();
+    </script>
+</body>
+
+</html>

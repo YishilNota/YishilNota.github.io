@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
+<html lang="ug" dir="rtl">
+
 <html lang="ug">
   
 <head>
@@ -24,14 +27,19 @@
     body {
       height: 100%;
       font-family: 'UKIJ Basma', 'Noto Sans Arabic', sans-serif;
-      background: linear-gradient(to bottom right, #f9fafb, #eef3f7);
-      color: #222;
+      background: #0a0a0a;
+      color: #fff;
+      overflow-x: hidden;
     }
 
     body {
       display: flex;
       flex-direction: column;
       min-height: 100vh;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
     }
 
     header {
@@ -46,12 +54,12 @@
     }
 
     .navbar {
-      max-width: 1100px;
+      max-width: 500px;
       margin: 0 auto;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 10px 20px;
+      justify-content: space-around;
+      padding: 10px 0px;
     }
 
     .navbar ul {
@@ -87,26 +95,37 @@
       color: #00bcd4;
     }
 
-    .navbar a.active {
-      color: #ff6f61;
-    }
-
     main {
       flex: 1;
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 120px 20px 60px;
+      position: relative;
+      z-index: 1;
+    }
+
+    canvas#bg-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
     }
 
     .about-card {
-      background: white;
+      background: rgba(255, 255, 255, 0.05);
       border-radius: 18px;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-      padding: 40px 50px;
-      max-width: 780px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      padding: 50px 40px 30px;
+      max-width: 700px;
       text-align: center;
       animation: fadeIn 0.8s ease-out;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      position: relative;
+      overflow: hidden;
     }
 
     @keyframes fadeIn {
@@ -122,29 +141,30 @@
     }
 
     .about-card h1 {
-      font-size: 34px;
-      color: #007ea7;
+      font-size: 32px;
+      color: #00bcd4;
       margin-bottom: 20px;
     }
 
     .about-card p {
       font-size: 17px;
-      color: #444;
+      color: #fff;
       line-height: 1.8;
       margin-bottom: 15px;
     }
 
     .about-card .highlight {
-      color: #00a0c6;
+      color: #00bcd4;
       font-weight: 700;
     }
 
-    .return-btn {
+    .return-btn,
+    .issue-btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
-      margin-top: 30px;
+      margin-top: 20px;
       padding: 10px 25px;
       background: #007ea7;
       color: white;
@@ -157,7 +177,8 @@
       box-shadow: 0 4px 12px rgba(0, 126, 167, 0.3);
     }
 
-    .return-btn:hover {
+    .return-btn:hover,
+    .issue-btn:hover {
       background: #00a7cc;
       transform: translateY(-2px);
       box-shadow: 0 6px 16px rgba(0, 126, 167, 0.4);
@@ -170,7 +191,14 @@
       text-align: center;
       padding: 15px;
       font-size: 14px;
-      margin-top: auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-note {
+      font-size: 12px;
+      color: #a0c4d4;
+      margin-top: 5px;
     }
   </style>
 </head>
@@ -178,45 +206,111 @@
 <body>
   <header>
     <div class="navbar">
-      <a href="index.html">
-        <img src="https://avatars.githubusercontent.com/u/48040405?s=400&u=d5fe2b34dfd050be4d0069f332c7b54fc2ece2ec&v=4"
-          alt="Logo" class="navbar-logo">
-      </a>
+      <img src="https://avatars.githubusercontent.com/u/48040405?s=400&u=d5fe2b34dfd050be4d0069f332c7b54fc2ece2ec&v=4"
+        alt="Logo" class="navbar-logo">
       <ul>
         <li><a href="index.html">باش بەت</a></li>
-        <li><a href="index.html#download">چۈشۈرۈش</a></li>
-        <li><a href="about.html" class="active">ھەققىدە</a></li>
+        <li><a href="download.html">چۈشۈرۈش</a></li>
+        <li><a href="about.html">ھەققىدە</a></li>
       </ul>
     </div>
   </header>
 
+  <canvas id="bg-canvas"></canvas>
+
   <main>
     <div class="about-card">
+
       <h1>يېشىل نوتا سۈنئىي ئەقىل قورالى ھەققىدە</h1>
+      <p><span class="highlight">«يېشىل نوتا»<br></span></p>
       <p>
-        <span class="highlight">«يېشىل نوتا»<br></span>
-      </p>
-      <p>
-        بۇ قورال، يەرلىك ئىقتىدارلارنى قوشۇپ، ئوچۇق مەنبەلىك تېخنىكىلار ئارقىلىق قوغدىغۇچ ۋە سۈنئىي ئەقىلنى بىرلەشتۈرىدۇ.
-     مەقسەت — <span class="highlight">ئاسانىچىلىق ۋە بىخەتەرلىكنى بىرلەشتۈرۈش</span> دۇر.
+        بۇ قورال، يەرلىك ئىقتىدارلارنى قوشۇپ، ئوچۇق مەنبەلىك تېخنىكىلار ئارقىلىق قوغدىغۇچ ۋە سۈنئىي ئەقىلنى
+        بىرلەشتۈرىدۇ.
+        مەقسەت — <span class="highlight">ئاسانىچىلىق ۋە بىخەتەرلىكنى بىرلەشتۈرۈش</span> دۇر.
       </p>
       <br>
-      <p>
-        دىتال ھازىر تۈزىتىلىۋاتىدۇ، يېڭى نەشر ئارقىلىق تېخىمۇ كۆپ ئىقتىدارلار قوشۇلىدۇ
-      </p>
-      
-      <p>
-        🌱بىز بىلەن بىللە، يېڭىلىققا قەدەم قويۇڭ🌱
-      </p>
+      <p>دىتال ھازىر تۈزىتىلىۋاتىدۇ، يېڭى نەشر ئارقىلىق تېخىمۇ كۆپ ئىقتىدارلار قوشۇلىدۇ</p>
+      <p>🌱بىز بىلەن بىللە، يېڭىلىققا قەدەم قويۇڭ🌱</p>
 
       <a href="index.html" class="return-btn">
         <i class="fas fa-home"></i> باش بەتكە قايتىش
+      </a>
+      <br>
+      <a href="https://github.com/YishilNota/YishilNota.github.io/issues/new" target="_blank" class="issue-btn">
+        <i class="fas fa-comment-dots"></i> تەكلىپ / ئىنكاس يوللاش
       </a>
     </div>
   </main>
 
   <footer>
     <p>يېشىل نوتا دىتال ئىجادىيەت ئىستۇدىيەسى</p>
+    <p class="footer-note">بۇ تور بەت AI نىڭ ياردىمىدە ياسالدى</p>
   </footer>
+
+  <script>
+    const canvas = document.getElementById('bg-canvas');
+    const ctx = canvas.getContext('2d');
+    let w, h;
+    const letters = "ئااببپتجچخدذرزسشغفقكڭڭللمنھويۇۆە";
+    let particlesArray = [];
+
+    function initCanvas() {
+      w = canvas.width = window.innerWidth;
+      h = canvas.height = window.innerHeight;
+      particlesArray = [];
+      for (let i = 0; i < 150; i++) {
+        particlesArray.push({
+          x: Math.random() * w,
+          y: Math.random() * h,
+          size: Math.random() * 24 + 12,
+          speedY: Math.random() * 1 + 0.3,
+          char: letters[Math.floor(Math.random() * letters.length)]
+        });
+      }
+    }
+
+    function animate() {
+      ctx.fillStyle = 'rgba(10,10,10,0.8)';
+      ctx.fillRect(0, 0, w, h);
+
+      particlesArray.forEach(p => {
+        p.y += p.speedY;
+        if (p.y > h) {
+          p.y = -p.size;
+          p.x = Math.random() * w;
+          p.char = letters[Math.floor(Math.random() * letters.length)];
+        }
+
+        ctx.shadowColor = '#00bcd4';
+        ctx.shadowBlur = 8;
+        ctx.font = `${p.size}px 'UKIJ Basma', 'Noto Sans Arabic', sans-serif`;
+        ctx.fillStyle = '#00bcd4';
+        ctx.fillText(p.char, p.x, p.y);
+      });
+
+      for (let i = 0; i < particlesArray.length; i++) {
+        for (let j = i + 1; j < particlesArray.length; j++) {
+          const dx = particlesArray[i].x - particlesArray[j].x;
+          const dy = particlesArray[i].y - particlesArray[j].y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          if (distance < 80) {
+            ctx.beginPath();
+            ctx.strokeStyle = `rgba(0,188,212,${1 - distance / 80})`;
+            ctx.lineWidth = 1;
+            ctx.moveTo(particlesArray[i].x, particlesArray[i].y);
+            ctx.lineTo(particlesArray[j].x, particlesArray[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('resize', initCanvas);
+    initCanvas();
+    animate();
+  </script>
 </body>
+
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ug">
+<html lang="ug" dir="rtl">
 
 <head>
   <meta charset="UTF-8">
@@ -31,6 +31,10 @@
       display: flex;
       flex-direction: column;
       min-height: 100vh;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
     }
     
     header {
@@ -45,12 +49,12 @@
     }
 
     .navbar {
-      max-width: 1100px;
+      max-width: 500px;
       margin: 0 auto;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 10px 20px;
+      justify-content: space-around;
+      padding: 10px 0px;
     }
 
     .navbar ul {
@@ -96,7 +100,6 @@
       padding: 0 20px 40px;
     }
 
-    /* 主卡片 */
     .hero {
       text-align: center;
       background: linear-gradient(135deg, #00a0c6, #007ea7);
@@ -132,7 +135,7 @@
       font-size: 16px;
       margin-bottom: 18px;
     }
-    
+
     .download-btn {
       position: relative;
       display: inline-flex;
@@ -272,8 +275,8 @@
       <img src="https://avatars.githubusercontent.com/u/48040405?s=400&u=d5fe2b34dfd050be4d0069f332c7b54fc2ece2ec&v=4"
         alt="Logo" class="navbar-logo">
       <ul>
-        <li><a href="#home">باش بەت</a></li>
-        <li><a href="#download">چۈشۈرۈش</a></li>
+        <li><a href="index.html">باش بەت</a></li>
+        <li><a href="download.html">چۈشۈرۈش</a></li>
         <li><a href="about.html">ھەققىدە</a></li>
       </ul>
     </div>
@@ -281,10 +284,9 @@
 
   <main>
     <section class="hero" id="home">
-      <h1>يېشىل نوتا سۈنئىي ئەقىل قورالى</h1>
-      <p>كۆپ ئىقتىدارلىق سۈنئىي ئەقىل قورال</p>
-
-      <a href="https://github.com/YishilNota/Tools/releases" class="download-btn">
+      <h1>Loading...</h1>
+      <p>Loading...</p>
+      <a href="#" class="download-btn">
         <i class="fas fa-download"></i>
         چۈشۈرۈش
         <span class="new-badge">يېڭى</span>
@@ -294,21 +296,6 @@
     <div class="features" id="download">
       <h2>قورالنىڭ ئالاھىدىلىكلىرى</h2>
       <div class="feature-grid">
-        <div class="feature-card">
-          <i class="fas fa-cogs"></i>
-          <h3>سۈنئىي ئەقىل</h3>
-          <p>پاراڭلىشىش، رەسىم چىقىرىش، سوئال جاۋاپ</p>
-        </div>
-        <div class="feature-card">
-          <i class="fas fa-user-friends"></i>
-          <h3>قوغدىغۇچى</h3>
-          <p>ئەخلەت تازلاش، دىتال يۇيۇش</p>
-        </div>
-        <div class="feature-card">
-          <i class="fas fa-shield-alt"></i>
-          <h3>بىخەتەر</h3>
-          <p>قۇلايلىق ۋە بىخەتەر</p>
-        </div>
       </div>
     </div>
 
@@ -321,6 +308,33 @@
   <footer>
     <p>يېشىل نوتا دىتال ئىجادىيەت ئىستۇدىيەسى</p>
   </footer>
+
+  <script>
+    fetch('homeSoftware.json')
+      .then(response => response.json())
+      .then(data => {
+
+        const hero = document.querySelector('.hero');
+        hero.querySelector('h1').textContent = data.name;
+        hero.querySelector('p').textContent = data.description;
+        hero.querySelector('.download-btn').href = data.downloadLink;
+
+
+        const featureGrid = document.querySelector('.feature-grid');
+        featureGrid.innerHTML = '';
+        data.features.forEach(f => {
+          const card = document.createElement('div');
+          card.className = 'feature-card';
+          card.innerHTML = `
+            <i class="${f.icon}"></i>
+            <h3>${f.title}</h3>
+            <p>${f.desc}</p>
+          `;
+          featureGrid.appendChild(card);
+        });
+      })
+      .catch(err => console.error('load json error:', err));
+  </script>
 </body>
 
 </html>

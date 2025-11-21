@@ -1,0 +1,22 @@
+{
+  "name": "يېشىل نوتا AI ياردەمچىسى",
+  "description": "كۆپ ئىقتىدارلىق AI قورالى، يەرلىلەشتۈرۈلگەن پاكىز، بىخەتەر دىتال",
+  "downloadLink": "https://github.com/YishilNota/Tools/releases",
+  "features": [
+    {
+      "icon": "fas fa-cogs",
+      "title": "سۈنئىي ئەقىل",
+      "desc": "پاراڭلىشىش، رەسىم چىقىرىش، سوئال جاۋاپ"
+    },
+    {
+      "icon": "fas fa-user-friends",
+      "title": "قوغدىغۇچى",
+      "desc": "ئەخلەت تازلاش، دىتال يۇيۇش"
+    },
+    {
+      "icon": "fas fa-shield-alt",
+      "title": "بىخەتەر",
+      "desc": "قۇلايلىق ۋە بىخەتەر"
+    }
+  ]
+}

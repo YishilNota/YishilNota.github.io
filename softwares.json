@@ -1,0 +1,23 @@
+[
+  {
+    "name": "يېشىل نوتا AI ياردەمچىسى",
+    "version": "v0.0.1",
+    "size": "/",
+    "date": "2025/11/14",
+    "description": "كۆپ ئىقتىدارلىق AI قورالى، يەرلىلەشتۈرۈلگەن پاكىز، بىخەتەر دىتال",
+    "icon": "",
+    "download": "#",
+    "new": true
+  },
+  {
+    "name": "ئىككىلىك كود قورالى",
+    "version": "v1.0.0",
+    "size": "12MB",
+    "date": "2025/10/22",
+
+  "description": "1. خەتنى كودقا ئۆزگەرتىش\n2. كودنى خەتكە ئۆزگەرتىش",
+    "icon": "https://github.com/YishilNota/Tools/blob/main/QRCreater/ico.png",
+    "download": "https://github.com/YishilNota/Tools/tree/main/QRCreater",
+    "new": false
+  }
+]
