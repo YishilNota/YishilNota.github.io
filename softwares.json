@@ -7,17 +7,17 @@
     "description": "كۆپ ئىقتىدارلىق AI قورالى، يەرلىلەشتۈرۈلگەن پاكىز، بىخەتەر دىتال",
     "icon": "",
     "download": "#",
-    "new": true
+    "new": false
   },
   {
-    "name": "ئىككىلىك كود قورالى",
+    "name": "رەسىملىك ھۆججەتنى تېكىستقا ئايلاندۇرۇش قورالى",
     "version": "v1.0.0",
     "size": "12MB",
-    "date": "2025/10/22",
-
-  "description": "1. خەتنى كودقا ئۆزگەرتىش\n2. كودنى خەتكە ئۆزگەرتىش",
+    "date": "2026/01/10",
+    "description": "رەسىملىك ھۆججەتنى تېكىستقا ئايلاندۇرۇش قورالى",
     "icon": "https://github.com/YishilNota/Tools/blob/main/QRCreater/ico.png",
-    "download": "https://github.com/YishilNota/Tools/tree/main/QRCreater",
-    "new": false
+    "download": "https://github.com/YishilNota/YishilNotaOCR",
+    "new": true
   }
 ]
+
